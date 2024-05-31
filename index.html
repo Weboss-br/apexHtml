@@ -1,0 +1,368 @@
+<apex:component controller="Controller_RelatorioPropostaCom" access="global">
+    <apex:attribute name="IdQto" description="Id da Cotação" type="Id" required="false" assignTo="{!qtoId}" />
+
+    <html style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;">
+        <body style="height: 100%; display: flex; flex-direction: column; padding: 0px 0;">
+            <div style="display: flex; flex-direction: column; width: 100%; position: relative;">
+                <div style="position: relative; width: 800px; height: 1070px;">
+                    <apex:image style="position: absolute; top: 0; left: 0; width: 800px; height: 1070px;" value="https://scmidia--c.vf.force.com/resource/reportassets02/reportassets02/capa.png" />
+                </div>
+            </div>
+
+            <div style="display: flex; width: 100%; position: relative;">
+
+                <table style="-fs-table-paginate: paginate;table-layout:sfixed; border-collapse: collapse; font-size: 10px; padding-right:15px; min-width: 740px; max-width: 740px; width: 740px;" class="no-spacing" cellspacing="0">
+                    <thead>
+                        <tr style="padding: 0;">
+                            <td style="padding: 0;">
+                                <table class="noTableCss" style="border-collapse: collapse; width: 800px; max-width: 800px; min-width: 800px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="height: 70px; width: 800px; padding: 0;">
+												<apex:image height="70px" width="800px" value="https://scmidia--c.vf.force.com/resource/reportassets02/reportassets02/topo.png" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5cm 1cm 0;">
+                                <table style="border-collapse: collapse;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" width="120" style=" vertical-align: top;">
+                                                <span style="color: rgb(132, 183, 85); font-size: 40px; font-weight: 800; line-height: 40px; ">
+                                                    Proposta <br><br>
+                                                    Comercial
+                                                </span>
+                                            </td>
+                                            <td colspan="6" rowspan="4" style="width: 100%;"></td>
+                                            <td colspan="2" rowspan="4" width="120" style="">
+                                                <apex:image height="120" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/epson.png" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" width="120" style=" vertical-align: top;">
+                                                <span style="color: black; font-size: 24px; font-weight: 300; line-height: 24px; letter-spacing: 5px; ">
+                                                    N: {!qto.QuoteNumber}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1" width="20px" style="max-width: 20px; padding: 15px 0;">
+                                                <span style="height: 20px;">
+                                                    <apex:image height="6px" width="90px" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/divisoria.png" />
+                                                </span>
+                                            </td>
+                                            <td colspan="1" width="100px" style="max-width: 100px; "></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0 1cm;">
+                                <table style="border-collapse: collapse;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3" width="120" style=" vertical-align: top;">
+                                                <span style="color: rgb(132, 183, 85); font-size: 20px; font-weight: 800; line-height: 20px; ">
+                                                    Informações
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10" style=" vertical-align: top; padding: 0;">
+                                                <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/topleft.png" />
+                                            </td>
+                                            <td style="width: 100%; vertical-align: top; padding: 0;">
+                                                <apex:image height="35" style="width: 100%;" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/top.png" />
+                                            </td>
+                                            <td width="10" style=" vertical-align: top; padding: 0;">
+                                                <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/topright.png" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/left.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                            </td>
+                                            <td style="width: 100%; vertical-align: top; padding: 0; font-size: 12px;">
+                                                <b>INFORMAÇÕES DO CLIENTE:</b> <br><br>
+                                                Razão Social: {!qto.Account.Name} <br><br>
+                                                CNPJ: {!qto.Account.CpfCnpj__c} <br><br>
+                                                Endereço: {!qto.Account.BillingState} <br><br>
+                                                Contato: {!qto.Contact.Name} <br><br>
+                                                Telefone: {!qto.Account.Phone} <br><br>
+                                                E-mail: {!qto.Email} <br><br>
+                                            </td>
+                                            <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/right.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="35" style=" vertical-align: top; padding: 0;">
+                                                <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottomleft.png" />
+                                            </td>
+                                            <td style="width: 100%; vertical-align: top; padding: 0;">
+                                                <apex:image height="35" style="width: 100%;" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottom.png" />
+                                            </td>
+                                            <td width="35" style=" vertical-align: top; padding: 0;">
+                                                <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottomright.png" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0 0cm;">
+                                <table style="border-collapse: collapse;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="7" style=" vertical-align: top;">
+                                                <span style="color: rgb(132, 183, 85); font-size: 20px; font-weight: 800; line-height: 40px; ">
+                                                    Produtos
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <apex:repeat value="{!qto.QuoteLineItems}" var="quoteItem">
+                            <tr>
+                                <td style="padding: 0 1cm; page-break-inside: avoid; min-width: 740px; max-width: 740px; width: 740px;">
+                                    <table style="border-collapse: collapse; min-width: 740px; max-width: 740px; width: 740px;">
+                                        <tbody>
+                                            <tr>
+                                                <td width="10" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/topleft.png" />
+                                                </td>
+                                                <td style="vertical-align: top; padding: 0; background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/top.png') repeat-x; background-size: 100px 35px;">
+                                                </td>
+                                                <td width="10" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/topright.png" />
+                                                </td>
+                                                <td width="10" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/topleft.png" />
+                                                </td>
+                                                <td style="vertical-align: top; padding: 0; background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/top.png') repeat-x; background-size: 100px 35px;">
+                                                </td>
+                                                <td style="vertical-align: top; padding: 0; background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/top.png') repeat-x; background-size: 100px 35px;">
+                                                </td>
+                                                <td width="10" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/topright.png" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/left.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                                </td>
+                                                
+                                                <td height="120px" width="160px" style="width: 100%; min-width: 160px; text-align: center; vertical-align: middle; padding: 0; font-size: 12px;">
+                
+                                                    <apex:image style="width: 100%; min-width: 140px;" rendered="{!quoteItem.Product2.LinPro__c != null && quoteItem.Product2.LinPro__c != ''}" value="{!quoteItem.Product2.LinPro__c}" />
+                
+                                                    <apex:image rendered="{!quoteItem.Product2.LinPro__c == null || quoteItem.Product2.LinPro__c == ''}" height="120" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/epson.png" />
+                
+                                                </td>
+                
+                                                <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/right.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                                </td>
+                                                <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/left.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                                </td>
+                                                <td style="width: 150px; max-width: 150px; vertical-align: middle; background: white; padding: 0; font-size: 26px;">
+                                                    <b>{!quoteItem.Product2.RotRel__c}</b>
+                                                </td>
+                                                <td style="width: 100%; vertical-align: top; background: white; padding: 0 1cm; padding: 0 0.25cm 0 0.5cm; font-size: 12px;">
+                                                    <b style="line-height: 30px;">1 - ESPECIFICAÇÕES TÉCNICAS:</b> <br></br>
+                                                    <span style="line-height: 12px; font-size: 14px; font-weight: 100;">
+                                                        <apex:outputText value="{!quoteItem.Product2.DesRel__c}" escape="false"/>
+                                                    </span>
+                                                </td>
+                                                <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/right.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="35" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottomleft.png" />
+                                                </td>
+                                                <td style="vertical-align: top; padding: 0; background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottom.png') repeat-x; background-size: 100px 35px;">
+                                                </td>
+                                                <td width="35" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottomright.png" />
+                                                </td>
+                                                <td width="35" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottomleft.png" />
+                                                </td>
+                                                <td style="vertical-align: top; padding: 0; background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottom.png') repeat-x; background-size: 100px 35px;">
+                                                </td>
+                                                <td style="vertical-align: top; padding: 0; background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottom.png') repeat-x; background-size: 100px 35px;">
+                                                </td>
+                                                <td width="35" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottomright.png" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="7" style="padding-bottom: 20px;">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="width: 50px; font-size: 12px; padding: 0; margin: 0;">
+                                                                    Código <br/>Item
+                                                                </td>
+                                                                <td style="font-size: 12px; padding: 0 10px; margin: 0; font-weight: 200; background-color: rgb(235, 235, 235);">
+                                                                    {!quoteItem.Product2.ProductCode}
+                                                                </td>
+                                                                <td style="font-size: 12px; width: 30px;padding: 0; margin: 0;">
+                                                                </td>
+                                                                <td style="width: 40px; font-size: 12px; padding: 0; margin: 0;">
+                                                                    Preço
+                                                                </td>
+                                                                <td style="font-size: 12px; padding: 0 10px; margin: 0; font-weight: 200; background-color: rgb(235, 235, 235);">
+                                                                    R$
+                                                                    <apex:outputText value="{0,number, ###,###,###,##0.00}">
+                                                                        <apex:param value="{!quoteItem.UnitPrice}" />
+                                                                    </apex:outputText>
+                                                                </td>
+                                                                <td style="font-size: 12px; width: 30px;padding: 0; margin: 0;">
+                                                                </td>
+                                                                <td style="width: 35px; font-size: 12px; padding: 0; margin: 0;">
+                                                                    Qtde.
+                                                                </td>
+                                                                <td style="font-size: 12px; padding: 0 10px; margin: 0; font-weight: 200; background-color: rgb(235, 235, 235);">
+                                                                    {!quoteItem.Quantity}
+                                                                </td>
+                                                                <td style="font-size: 12px; width: 30px;padding: 0; margin: 0;">
+                                                                </td>
+                                                                <td style="width: 35px; font-size: 12px; padding: 0; margin: 0;">
+                                                                    Total
+                                                                </td>
+                                                                <td style="font-size: 12px; padding: 0 10px; margin: 0; font-weight: 200; background-color: rgb(235, 235, 235);">
+                                                                    R$
+                                                                    <apex:outputText value="{0,number, ###,###,###,##0.00}">
+                                                                        <apex:param value="{!quoteItem.TotalPrice}" />
+                                                                    </apex:outputText>
+                                                                </td>
+                                                            </tr>
+                    
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+
+                        <tr style="page-break-before: always;">
+                            <td style="padding: 0 1cm; page-break-inside: avoid;">
+                                <apex:repeat value="{!texts}" var="textBlock">
+                                    <table style="border-collapse: collapse; -fs-table-paginate: paginate;table-layout:sfixed; border-collapse: collapse; font-size: 10px; padding-right:15px; min-width: 740px;">
+                                        <tbody>
+                                            <tr>
+                                                <td width="10" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/topleft.png" />
+                                                </td>
+                                                <td style="width: 100%; vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" style="width: 100%;" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/top.png" />
+                                                </td>
+                                                <td width="10" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/topright.png" />
+                                                </td>
+                                            </tr>
+
+                                            <apex:outputText rendered="{!(textBlock.showHeader)}">
+                                                <tr>
+                                                    <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/left.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                                    </td>
+                                                    <td style="width: 100%; vertical-align: top; padding: 0; font-size: 12px;">
+                                                        <apex:outputText value="{!textBlock.header}" escape="false"/><br></br>
+                                                        <apex:outputText value="{!textBlock.text}" escape="false"/>
+                                                    </td>
+                                                    <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/right.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                                    </td>
+                                                </tr>
+                                            </apex:outputText>
+
+                                            <apex:repeat value="{!textBlock.subtexts}" var="subTextBlock">
+                                                <tr>
+                                                    <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/left.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                                    </td>
+                                                    <td style="width: 100%; vertical-align: top; padding: 0 0 10px 0; font-size: 12px;">
+                                                        <apex:outputText value="{!subTextBlock.header}" escape="false"/><br></br>
+                                                        <apex:outputText value="{!subTextBlock.text}" escape="false"/>
+                                                    </td>
+                                                    <td width="2" style="vertical-align: top;background: Transparent url('https://scmidia--c.vf.force.com/resource/reportassets/reportassets/right.png') repeat-y;margin:0;padding:0;background-size: 35px 100px;">
+                                                    </td>
+                                                </tr>
+                                            </apex:repeat>
+                                            <tr>
+                                                <td width="35" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottomleft.png" />
+                                                </td>
+                                                <td style="width: 100%; vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" style="width: 100%;" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottom.png" />
+                                                </td>
+                                                <td width="35" style=" vertical-align: top; padding: 0;">
+                                                    <apex:image height="35" value="https://scmidia--c.vf.force.com/resource/reportassets/reportassets/bottomright.png" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </apex:repeat>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0 1.5cm;">
+                                <table style="border-collapse: collapse; -fs-table-paginate: paginate;table-layout:sfixed; border-collapse: collapse; padding-right: 15px; max-width: 700px; min-width: 700px; width: 700px;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3">De Acordo,</td>
+                                        </tr>
+                                        <tr><td colspan="3"></td></tr>
+                                        <tr><td colspan="3"></td></tr>
+                                        <tr><td colspan="3"></td></tr>
+                                        <tr><td colspan="3"></td></tr>
+                                        <tr><td colspan="3"></td></tr>
+                                        <tr><td colspan="3"></td></tr>
+                                        <tr>
+                                            <td style="border-bottom: 1px solid rgb(159, 159, 163);"></td>
+                                            <td style="width: 80px;"></td>
+                                            <td style="border-bottom: 1px solid rgb(159, 159, 163);"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="vertical-align: top; text-align: center;">Blutrade</td>
+                                            <td style="vertical-align: top; text-align: center;"></td>
+                                            <td style="vertical-align: top; text-align: center;">Cliente</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">Blumenau, {!dataHoje}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+
+                </table>
+            </div>
+        </body>
+<footer style="padding: 0; margin: 0; background-color: pink;">
+    <div class="footer" style="padding: 0; margin: 0; height: 130px; display: flex; width: 100%;">
+        <table class="noTableCss" style="padding: 0; margin: 0; border-collapse: collapse; width: 840px; max-width: 840px; min-width: 840px;">
+            <tbody>
+                <tr>
+                    <td style="height: 40px; width: 50px; min-width: 50px; background-color: rgb(132, 183, 85);"></td>
+                    <td style="height: 40px; width: 50px; min-width: 50px; background-color: rgb(55, 66, 66);"></td>
+                    <td style="height: 40px; width: 50px; min-width: 50px; background-color: rgb(99, 110, 111);"></td>
+                    <td style="height: 40px;"></td> <!-- Nova célula com fundo rosa -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</footer>
+    </html>
+</apex:component>
